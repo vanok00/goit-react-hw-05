@@ -1,9 +1,10 @@
+import HomeApp from "../../components/HomeApp/HomeApp";
+
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <HomeApp />
     </div>
   );
 };
-
 export default Home;

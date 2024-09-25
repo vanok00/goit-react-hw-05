@@ -1,7 +1,22 @@
 .wrapper {
   width: 100%;
-  background-color: aqua;
+  background-color: rgb(5, 112, 112);
   padding: 20px;
+}
+
+.link {
+  color: white;
+  font-weight: bold;
+  &:hover {
+    color: rgb(228, 91, 91);
+  }
+}
+
+.activeLink {
+  color: rgb(235, 23, 23);
+}
+
+.wrapperLinks {
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
