@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { fetchMovies } from "../../services/api";
 import s from "./HomeApp.module.css";
+import { Link } from "react-router-dom";
+import fetchMovies from "../../services/api";
 
 const HomeApp = () => {
   const [results, setResults] = useState([]);
   useEffect(() => {
     const getTrendingMovies = async () => {
-      const data = await fetchMovies();
-      setResults(data.results || []);
+      const movies = await fetchMovies();
+      setResults(movies || []);
     };
     getTrendingMovies();
   }, []);
@@ -16,9 +17,11 @@ const HomeApp = () => {
     <div>
       <h1>Trending today</h1>
       <ul className={s.moviesList}>
-        {results.map((result) => (
-          <li key={result.id}>
-            <p>{result.title}</p>
+        {results.map((movie) => (
+          <li key={movie.id}>
+            <Link to={movie.id.toString()}>
+              <p>{movie.title}</p>
+            </Link>
           </li>
         ))}
       </ul>
