@@ -23,13 +23,28 @@
 
 // export default MovieDetails;
 
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { fetchMoviesById } from "../../services/api";
 
 const MovieDetails = () => {
   const { moviesId } = useParams();
-  console.log(moviesId);
+  const [movie, setMovie] = useState(null);
+  useEffect(() => {
+    const getData = async () => {
+      const data = await fetchMoviesById(moviesId);
+      setMovie(data);
+    };
+    getData();
+  }, [moviesId]);
+  if (!movie) return <h2>Loading...</h2>;
 
-  return <div>Detais by user</div>;
+  return (
+    <div>
+      <img src={movie.backdrop_path} />
+      <h2> {movie.overview}</h2>
+    </div>
+  );
 };
 
 export default MovieDetails;
