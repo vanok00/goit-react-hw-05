@@ -19,7 +19,7 @@ const HomeApp = () => {
       <ul className={s.moviesList}>
         {results.map((movie) => (
           <li key={movie.id}>
-            <Link to={movie.id.toString()}>
+            <Link to={`/movie/${movie.id}`}>
               <p>{movie.title}</p>
             </Link>
           </li>

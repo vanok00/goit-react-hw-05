@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import fetchMovies from "../../services/api";
 
 const MovieDetails = () => {
@@ -8,14 +8,9 @@ const MovieDetails = () => {
 
   useEffect(() => {
     const getMovie = async () => {
-      try {
-        const movieData = await fetchMovies(movieId);
-        setMovie(movieData);
-      } catch (error) {
-        console.error("Failed to fetch movie details:", error);
-      }
+      const data = await fetchMovies(movieId);
+      setMovie(data);
     };
-
     getMovie();
   }, [movieId]);
 
@@ -23,17 +18,7 @@ const MovieDetails = () => {
     return <p>Loading...</p>;
   }
 
-  return (
-    <div>
-      <h2>{movie.title}</h2>
-      <img
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        alt={movie.title}
-      />
-      <p>{movie.overview}</p>
-      <Link to="/">Back to Home</Link>
-    </div>
-  );
+  return <div>Detais by user</div>;
 };
 
 export default MovieDetails;
