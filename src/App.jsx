@@ -1,19 +1,19 @@
-import Header from "./components/Header/Header";
+import Navigation from "./components/Navigation/Navigation";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home/Home";
-import NotFound from "./pages/NotFound/NotFound";
-import Movies from "./pages/Movies/Movies";
-import MovieDetails from "./pages/MovieDetails/MovieDetails";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import HomePage from "./pages/HomePage/HomePage";
+import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
+import MoviesPage from "./pages/MoviesPage/MoviesPage";
 
 function App() {
   return (
     <>
-      <Header />
+      <Navigation />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movie" element={<Movies />} />
-        <Route path="/movie/:moviesId" element={<MovieDetails />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movie" element={<MoviesPage />} />
+        <Route path="/movie/:moviesId" element={<MovieDetailsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );

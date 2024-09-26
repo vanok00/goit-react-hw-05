@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import s from "./HomeApp.module.css";
-import { Link } from "react-router-dom";
 import fetchMovies from "../../services/api";
-
-const HomeApp = () => {
+import s from "./MovieList.module.css";
+import { Link } from "react-router-dom";
+const MovieList = () => {
   const [results, setResults] = useState([]);
   useEffect(() => {
     const getTrendingMovies = async () => {
@@ -29,4 +28,4 @@ const HomeApp = () => {
   );
 };
 
-export default HomeApp;
+export default MovieList;
