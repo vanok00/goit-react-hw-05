@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { fetchMovieById } from "../../services/api";
+import s from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const { moviesId } = useParams();
@@ -15,6 +16,7 @@ const MovieDetailsPage = () => {
         console.error("Failed to fetch movie details:", error);
       }
     };
+
     getMovieDetails();
   }, [moviesId]);
 
@@ -23,25 +25,28 @@ const MovieDetailsPage = () => {
   }
 
   return (
-    <div>
-      <h2>{movie.title}</h2>
-      <img
-        src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
-        alt={movie.title}
-      />
-      <p>
-        <strong>Overview:</strong> {movie.overview}
-      </p>
-      <p>
-        <strong>Release Date:</strong> {movie.release_date}
-      </p>
-      <p>
-        <strong>Rating:</strong> {movie.vote_average} / 10
-      </p>
-      <p>
-        <strong>Vote Count:</strong> {movie.vote_count}
-      </p>
-      <Link to="/">Back to Home</Link>
+    <div className={s.wrapper}>
+      <div>
+        <Link to="/">Back to Home</Link>
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+          alt={movie.title}
+        />
+      </div>
+      <div className={s.overview}>
+        <h2>{movie.original_title}</h2>
+        <p>
+          <strong>User Score:</strong> {Math.round(movie.vote_average * 10)}
+          {"%"}
+        </p>
+        <p>
+          <strong>Overview:</strong> {movie.overview}
+        </p>
+        <p>
+          <strong>Genres:</strong>{" "}
+          {movie.genres.map((genre) => genre.name).join(", ")}
+        </p>
+      </div>
     </div>
   );
 };
