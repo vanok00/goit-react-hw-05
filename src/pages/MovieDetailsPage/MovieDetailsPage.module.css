@@ -15,3 +15,8 @@
 p {
   font-size: 20px;
 }
+
+.addInfo {
+  display: flex;
+  flex-direction: column;
+}
