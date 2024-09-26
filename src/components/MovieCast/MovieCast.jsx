@@ -26,8 +26,8 @@ const MovieCast = () => {
                 src={`https://image.tmdb.org/t/p/w500${cast.profile_path}`}
                 alt={cast.title}
               />
-              <p>{cast.name}</p>
-              <p>Character:{cast.character}</p>
+              <h3>{cast.name}</h3>
+              <p>Character: {cast.character}</p>
             </div>
           </li>
         ))}
