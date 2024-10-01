@@ -26,3 +26,10 @@
   width: auto;
   background-color: aqua;
 }
+
+.moviesWrap {
+  margin-top: 20px;
+}
+.search {
+  margin-top: 20px;
+}

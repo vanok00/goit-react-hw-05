@@ -2,7 +2,8 @@
   padding: 10px 20px;
 }
 .review {
-  border: 2px solid #0a2351;
+  border-radius: 8px;
+  border: 2px solid #000000;
   padding: 12px;
   margin-bottom: 20px;
 }

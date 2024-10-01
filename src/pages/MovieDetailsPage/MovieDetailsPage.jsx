@@ -27,14 +27,18 @@ const MovieDetailsPage = () => {
   return (
     <>
       <div className={s.backLink}>
-        <Link to="/">Back to Home</Link>
+        <Link className={s.link} to="/">
+          Back to Home
+        </Link>
       </div>
-      <div>
-        <img
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          alt={movie.title}
-          width={300}
-        />
+      <div className={s.movie}>
+        <div>
+          <img
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt={movie.title}
+            width={250}
+          />
+        </div>
         <div className={s.overview}>
           <h2>{movie.original_title}</h2>
           <p>
@@ -53,8 +57,13 @@ const MovieDetailsPage = () => {
       </div>
       <div className={s.addInfo}>
         <h3>Additional information</h3>
-        <NavLink to="casts">Casts</NavLink>
-        <NavLink to="reviews">Reviews</NavLink>
+
+        <NavLink to="casts">
+          <p>Casts</p>
+        </NavLink>
+        <NavLink to="reviews">
+          <p>Reviews</p>
+        </NavLink>
       </div>
       <Outlet />
     </>

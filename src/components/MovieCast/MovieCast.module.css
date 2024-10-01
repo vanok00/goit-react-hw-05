@@ -1,16 +1,21 @@
 .actorList {
-  margin-top: 20px;
   display: flex;
-  flex-direction: column;
-  gap: 30px;
+  justify-content: center;
+  flex-direction: row;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-bottom: 50px;
 }
 
 p {
-  font-size: 16px;
+  font-size: 20px;
 }
 
+h3 {
+  font-size: 24px;
+}
 .actor {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  width: 300px;
+  border: 2px solid #0a2351;
+  text-align: center;
 }

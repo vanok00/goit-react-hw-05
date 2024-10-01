@@ -49,7 +49,7 @@ const MoviesPage = () => {
   );
   return (
     <>
-      <div>
+      <div className={s.search}>
         <Toaster />
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
           <Form className={s.searchBar}>
@@ -65,7 +65,7 @@ const MoviesPage = () => {
           </Form>
         </Formik>
       </div>
-      <div>
+      <div className={s.moviesWrap}>
         <MovieList movies={filteredMovies} />
       </div>
     </>
