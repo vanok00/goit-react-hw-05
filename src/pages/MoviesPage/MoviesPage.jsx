@@ -66,7 +66,6 @@ const MoviesPage = () => {
         </Formik>
       </div>
       <div>
-        {/* Передаємо query в компонент MovieList */}
         <MovieList movies={filteredMovies} />
       </div>
     </>

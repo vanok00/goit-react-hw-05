@@ -15,22 +15,20 @@ const MovieReviews = () => {
     getReviews();
   }, [moviesId]);
   return (
-    <div className={s.reviewsList}>
+    <>
       {reviews.length === 0 ? (
         <h2>Sorry, there are no reviews available.</h2>
       ) : (
-        <ul>
+        <ul className={s.reviews}>
           {reviews.map((review) => (
-            <li key={review.id}>
-              <div className={s.review}>
-                <h3>Author: {review.author}</h3>
-                <p>{review.content}</p>
-              </div>
+            <li key={review.id} className={s.review}>
+              <h3 className={s.author}>Author: {review.author}</h3>
+              <p className={s.content}>{review.content}</p>
             </li>
           ))}
         </ul>
       )}
-    </div>
+    </>
   );
 };
 

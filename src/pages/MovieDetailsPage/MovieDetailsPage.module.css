@@ -1,3 +1,64 @@
+/* .movie {
+  padding: 20px;
+  display: flex;
+  gap: 30px;
+  font-size: 20px;
+}
+
+.image {
+  width: 300px;
+}
+
+.title {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.score {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #00bfff;
+  margin-bottom: 12px;
+}
+
+.overview {
+  border: 2px solid #0a2351;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.addInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  gap: 20px;
+  font-size: 20px;
+  height: 50px;
+}
+.links {
+  text-align: center;
+  display: flex;
+  gap: 20px;
+}
+
+.backLinkDiv {
+  padding: 30px 20px 10px;
+}
+
+.backLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  font-size: 20px;
+  text-transform: uppercase;
+  width: 160px;
+  height: 45px;
+  background-color: #0a2351;
+  color: #6699cc;
+  border: none;
+} */
+
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -20,4 +81,10 @@ p {
 .addInfo {
   display: flex;
   flex-direction: column;
+}
+
+.backLink {
+  border: 1px salmon solid;
+  width: 120px;
+  padding: 8px;
 }

@@ -1,13 +1,5 @@
-.title {
-  text-align: center;
-  color: blue;
-}
-/* src/index.css */
-
-body {
-  font-family: sans-serif;
-  line-height: 1.5;
-  background-color: #cbfdda;
+* {
+  box-sizing: border-box;
 }
 
 h1,
@@ -20,28 +12,26 @@ p {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 ul,
 ol {
   margin: 0;
   padding: 0;
+  padding-left: 0;
+  list-style-type: none;
 }
 
-:root {
-  --color-red: red;
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-.btn {
-  padding: 10px 22px;
-  border-radius: 4px;
-  border: none;
-  background-color: white;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  font-size: 2.5rem;
-  border: 1px solid black;
-
-  &:hover {
-    background-color: #091ec2;
-    color: white;
-  }
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  background-color: #cbfdda;
 }

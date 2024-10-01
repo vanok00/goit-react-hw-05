@@ -25,37 +25,39 @@ const MovieDetailsPage = () => {
   }
 
   return (
-    <div className={s.wrapper}>
-      <div>
+    <>
+      <div className={s.backLink}>
         <Link to="/">Back to Home</Link>
+      </div>
+      <div>
         <img
-          src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt={movie.title}
+          width={300}
         />
-        <div className={s.addInfo}>
-          <h3>Additional information</h3>
-          <NavLink to="casts">Casts</NavLink>
-          <NavLink to="reviews">Reviews</NavLink>
+        <div className={s.overview}>
+          <h2>{movie.original_title}</h2>
+          <p>
+            <strong>User Score:</strong> {Math.round(movie.vote_average * 10)}
+            {"%"}
+          </p>
+          <p>
+            <strong>Overview:</strong> {movie.overview}
+          </p>
+          <p>
+            <strong>Genres:</strong>{" "}
+            {movie.genres.map((genre) => genre.name).join(", ")}
+          </p>
+          <hr />
         </div>
-        <Outlet />
       </div>
-
-      <div className={s.overview}>
-        <h2>{movie.original_title}</h2>
-        <p>
-          <strong>User Score:</strong> {Math.round(movie.vote_average * 10)}
-          {"%"}
-        </p>
-        <p>
-          <strong>Overview:</strong> {movie.overview}
-        </p>
-        <p>
-          <strong>Genres:</strong>{" "}
-          {movie.genres.map((genre) => genre.name).join(", ")}
-        </p>
-        <hr />
+      <div className={s.addInfo}>
+        <h3>Additional information</h3>
+        <NavLink to="casts">Casts</NavLink>
+        <NavLink to="reviews">Reviews</NavLink>
       </div>
-    </div>
+      <Outlet />
+    </>
   );
 };
 
