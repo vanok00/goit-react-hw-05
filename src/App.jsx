@@ -7,6 +7,8 @@ import MoviesPage from "./pages/MoviesPage/MoviesPage";
 import MovieReviews from "./components/MovieReviews/MovieReviews";
 import MovieCast from "./components/MovieCast/MovieCast";
 
+export const baseImgUrl = "https://image.tmdb.org/t/p/w500/";
+
 function App() {
   return (
     <>

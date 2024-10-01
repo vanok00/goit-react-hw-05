@@ -1,30 +1,19 @@
-import { useState } from "react";
-import fetchTrendMovies from "../../services/api";
 import s from "./MovieList.module.css";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
-const MovieList = ({ query }) => {
-  const [results, setResults] = useState([]);
-  useEffect(() => {
-    const getTrendingMovies = async () => {
-      const movies = await fetchTrendMovies();
-      setResults(movies || []);
-    };
-    getTrendingMovies();
-  }, [query]);
+import { Link, useLocation } from "react-router-dom";
+
+const MovieList = ({ movies }) => {
+  const location = useLocation();
+
   return (
-    <>
-      <h1>Trending today</h1>
-      <ul className={s.moviesList}>
-        {results.map((movie) => (
-          <li key={movie.id}>
-            <Link to={`/movie/${movie.id}`}>
-              <p>{movie.title}</p>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </>
+    <ul className={s.list}>
+      {movies.map((movie) => (
+        <li key={movie.id} className={s.card}>
+          <Link to={`/movies/${movie.id}`} state={location}>
+            <h2 className={s.title}>{movie.title}</h2>
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 };
 
