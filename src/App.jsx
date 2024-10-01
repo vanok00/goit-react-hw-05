@@ -1,12 +1,10 @@
-import Navigation from "./components/Navigation/Navigation";
 import { Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage/HomePage";
-
 import { lazy } from "react";
 import { Suspense } from "react";
 
+const Navigation = lazy(() => import("./components/Navigation/Navigation"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const Loader = lazy(() => import("./components/Loader/Loader"));
-
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 const MovieDetailsPage = lazy(() =>
   import("./pages/MovieDetailsPage/MovieDetailsPage")
@@ -22,8 +20,8 @@ export const baseImgUrl = "https://image.tmdb.org/t/p/w500/";
 function App() {
   return (
     <>
-      <Navigation />
       <Suspense fallback={<Loader />}>
+        <Navigation />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movie" element={<MoviesPage />} />

@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import { fetchMovieById } from "../../services/api";
 import s from "./MovieDetailsPage.module.css";
+import { Suspense } from "react";
+import Loader from "../../components/Loader/Loader";
 
 const MovieDetailsPage = () => {
   const { moviesId } = useParams();
@@ -72,7 +74,9 @@ const MovieDetailsPage = () => {
           <p>Reviews</p>
         </NavLink>
       </div>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
