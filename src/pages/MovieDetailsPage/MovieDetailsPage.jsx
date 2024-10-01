@@ -1,12 +1,19 @@
-import { useEffect, useState } from "react";
-import { useParams, Link, NavLink, Outlet } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import {
+  useParams,
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
 import { fetchMovieById } from "../../services/api";
 import s from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const { moviesId } = useParams();
   const [movie, setMovie] = useState(null);
-
+  const location = useLocation();
+  const goBackRef = useRef(location.state);
   useEffect(() => {
     const getMovieDetails = async () => {
       try {
@@ -27,7 +34,7 @@ const MovieDetailsPage = () => {
   return (
     <>
       <div className={s.backLink}>
-        <Link className={s.link} to="/">
+        <Link className={s.link} to={goBackRef.current ?? "/movie"}>
           Back to Home
         </Link>
       </div>
